@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "windcss": "npx tailwindcss -i ./src/input.css -o ./public/assets/css/output.css --watch",
+    "windcsswatch": "npx tailwindcss -i ./src/input.css -o ./public/assets/css/output.css --watch",
+    "windcss": "npx tailwindcss -i ./src/input.css -o ./public/assets/css/output.css",
     "copy:assets": "copyfiles -u 1 ./src/assets/**/* public",
     "copy:html": "copyfiles -u 1 ./src/*.html public",
     "copy:js": "copyfiles -u 1 ./src/assets/js/*.js public",
@@ -14,8 +15,8 @@
     "watch:js": "onchange \"src/assets/js/*.js\" -- npm run copy:js",
     "watch": "npm-run-all --parallel watch:*",
     "start": "npm-run-all copy --parallel watch windcss",
-    "build": "npm-run-all copy:html build:* windcss",
-    "postbuild": "postcss public/assets/css/*.css -u autoprefixer cssnano -r --no-map"
+    "build": "npm-run-all copy:* windcss bpostcss",
+    "bpostcss": "postcss public/assets/css/*.css -u autoprefixer cssnano -r --no-map"
   },
   "keywords": [],
   "author": "",
