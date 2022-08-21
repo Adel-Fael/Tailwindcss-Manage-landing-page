@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+
+/* to remove the blue box that showing in phone */
+* {
+  -webkit-tap-highlight-color: transparent;
+  -moz-tap-highlight-color: transparent;
+}
+/* same as above for safari */
+a:focus,a:visited,a:active,
+button:focus,button:visited,button:active{
+  outline: none;
+}
+
 body {
   background-image: url('../img/bg-tablet-pattern.svg');
   background-repeat: no-repeat;
